@@ -1,0 +1,146 @@
+@import url("https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@600;700&display=swap");
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin and padding*/
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+  padding: 0;
+}
+
+/* Remove list styles on ul */
+ul {
+  list-style: none;
+}
+
+/* Improve media defaults */
+img, picture, video, canvas, svg {
+  max-width: 100%;
+}
+
+/* Font inherit */
+input, button, textarea, select {
+  font: inherit;
+}
+
+body {
+  background: radial-gradient(at top, hsl(214deg, 47%, 23%), hsl(237deg, 49%, 15%));
+  font-family: "Barlow Semi Condensed", sans-serif;
+  min-height: 100vh;
+  min-width: 100vw;
+  overflow: hidden;
+}
+
+header {
+  align-items: center;
+  border: solid 2px hsl(217deg, 16%, 45%);
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+  margin-top: 2rem;
+  max-width: 700px;
+  padding: 15px 25px;
+}
+
+.logo {
+  color: #fff;
+}
+.logo__row {
+  display: block;
+  font-size: 2.5rem;
+  line-height: 32px;
+  text-transform: uppercase;
+}
+
+.score {
+  background-color: #fff;
+  text-align: center;
+  padding: 15px 45px;
+  border-radius: 8px;
+}
+.score span {
+  display: block;
+}
+.score__title {
+  font-size: 1.1rem;
+  letter-spacing: 2px;
+  color: hsl(229deg, 64%, 46%);
+}
+.score__points {
+  font-size: 3.7rem;
+  font-weight: 700;
+  line-height: 1;
+  color: hsl(229deg, 25%, 31%);
+}
+
+main {
+  position: relative;
+  max-width: 700px;
+  margin: 0 auto;
+  min-height: 70vh;
+  padding: 180px 0;
+}
+
+.game-board {
+  position: relative;
+  display: grid;
+  place-content: center;
+}
+
+.choice-button {
+  position: absolute;
+  aspect-ratio: 1/1;
+  align-items: center;
+  border: none;
+  border-radius: 50%;
+  box-shadow: inset 0px -9px 0px rgba(0, 0, 0, 0.2);
+  display: flex;
+  justify-content: center;
+  width: 200px;
+  cursor: pointer;
+}
+.choice-button__image-container {
+  align-items: center;
+  background-color: #fff;
+  border-radius: 50%;
+  box-shadow: inset 0px 8px 0px rgba(0, 0, 0, 0.15);
+  display: flex;
+  justify-content: center;
+  height: 80%;
+  width: 80%;
+}
+.choice-button img {
+  width: 50%;
+}
+.choice-button--paper {
+  top: 0;
+  left: 0;
+  transform: translate(50%, -50%);
+  background-image: linear-gradient(to right top, hsl(230deg, 89%, 62%), hsl(230deg, 89%, 65%));
+}
+.choice-button--scissors {
+  top: 0;
+  right: 0;
+  transform: translate(-50%, -50%);
+  background-image: linear-gradient(to right top, hsl(39deg, 89%, 49%), hsl(40deg, 84%, 53%));
+}
+.choice-button--rock {
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, 50%);
+  background-image: linear-gradient(to right top, hsl(349deg, 71%, 52%), hsl(349deg, 70%, 56%));
+}/*# sourceMappingURL=style.css.map */
