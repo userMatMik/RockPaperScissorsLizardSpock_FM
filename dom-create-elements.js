@@ -15,7 +15,7 @@ const createGameButton = (btnName) => {
     return buttonElement;
 }
 
-const createGameBoard = () => {
+export const createGameBoard = () => {
     const mainElement = document.querySelector('#main');
 
     const gameBoard = document.createElement('div');
@@ -31,6 +31,3 @@ const createGameBoard = () => {
 
     mainElement.appendChild(gameBoard);
 }
-
-
-createGameBoard()
