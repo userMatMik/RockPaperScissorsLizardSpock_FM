@@ -10,7 +10,7 @@ const winningCombinations = {
     spock: ['scissors', 'rock'],
 }
 
-let RPSstate = {
+export let RPSstate = {
     playerScore: Number(localStorage.getItem('RPSPlayerScoreLS')) || 0,
     playerPick: null,
     AIPick: null,
@@ -71,7 +71,7 @@ const eventListeners = () => {
             setAIPick();
             setWinner();
             updateScore();
-            // renderFight();
+            // renderBattle();
         })
     })
 }
