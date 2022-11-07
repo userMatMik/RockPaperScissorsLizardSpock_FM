@@ -1,4 +1,5 @@
 import { createGameBoard } from "./dom-create-elements.js";
+import { renderBattle } from "./create-result.js";
 
 const possibleChoices = ['rock', 'paper', 'scissors', 'lizard', 'spock'];
 
@@ -71,7 +72,7 @@ const eventListeners = () => {
             setAIPick();
             setWinner();
             updateScore();
-            // renderBattle();
+            renderBattle();
         })
     })
 }

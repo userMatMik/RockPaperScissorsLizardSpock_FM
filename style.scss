@@ -115,6 +115,10 @@ main {
     display: grid;
     place-content: center;
 
+    // .choice-button {
+
+    // } 
+
 }
 
 .choice-button {
@@ -164,4 +168,21 @@ main {
         transform: translate(-50%, 50%);
         background-image: $grd-rock;
     }
+}
+
+.results {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    border: 1px solid red;
+
+}
+
+.result {
+    width: 50%;
+    border: 1px solid green;
 }
