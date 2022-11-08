@@ -156,7 +156,25 @@ main {
   border: 1px solid red;
 }
 
-.result {
+.result-container {
   width: 50%;
   border: 1px solid green;
+  display: grid;
+  place-content: center;
+}
+.result-container .result-title {
+  font-size: 2rem;
+  color: #fff;
+  text-align: center;
+}
+
+.result {
+  aspect-ratio: 1/1;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 50%;
+  box-shadow: inset 0px 8px 0px rgba(0, 0, 0, 0.15);
+  display: flex;
+  justify-content: center;
+  width: 200px;
 }/*# sourceMappingURL=style.css.map */
