@@ -4,6 +4,7 @@ $clr-main: #fff;
 $clr-points: hsl(229, 25%, 31%);
 $clr-score: hsl(229, 64%, 46%);
 $clr-border: hsl(217, 16%, 45%);
+$clr-placeholder: hsl(237, 49%, 15%);
 
 $grd-scissors: linear-gradient(to right top, hsl(39, 89%, 49%), hsl(40, 84%, 53%));
 $grd-paper: linear-gradient(to right top, hsl(230, 89%, 62%), hsl(230, 89%, 65%));
@@ -217,4 +218,29 @@ main {
     display: flex;
     justify-content: center;
     width: 200px;
+
+    &__placeholder {
+        box-shadow: none;
+        background-color: $clr-placeholder;
+        opacity: 0.4;
+        transform: scale(0.8);
+        animation-name: pulse-placeholder;
+        animation-duration: 0.5s;
+        animation-timing-function: ease-out;
+        animation-delay: 0s;
+        animation-direction: alternate;
+        animation-iteration-count: infinite;
+        animation-fill-mode: none;
+        animation-play-state: running;
+    }
+}
+
+@keyframes pulse-placeholder {
+    0% {
+        transform: scale(0.6);
+    }
+
+    100% {
+        transform: scale (0.8);
+    }
 }

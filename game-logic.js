@@ -60,7 +60,7 @@ const setPlayerPick = (button) => {
     }
 }
 
-const updateScore = () => {
+export const updateScore = () => {
     const scoreElement = document.querySelector('.score__points');
     scoreElement.innerText = RPSstate.playerScore;
 }
@@ -71,7 +71,6 @@ const eventListeners = () => {
             setPlayerPick(button);
             setAIPick();
             setWinner();
-            updateScore();
             renderBattle();
         })
     })

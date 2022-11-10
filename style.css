@@ -177,4 +177,44 @@ main {
   display: flex;
   justify-content: center;
   width: 200px;
+}
+.result__placeholder {
+  box-shadow: none;
+  background-color: hsl(237deg, 49%, 15%);
+  opacity: 0.4;
+  transform: scale(0.8);
+  -webkit-animation-name: pulse-placeholder;
+          animation-name: pulse-placeholder;
+  -webkit-animation-duration: 0.5s;
+          animation-duration: 0.5s;
+  -webkit-animation-timing-function: ease-out;
+          animation-timing-function: ease-out;
+  -webkit-animation-delay: 0s;
+          animation-delay: 0s;
+  -webkit-animation-direction: alternate;
+          animation-direction: alternate;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-fill-mode: none;
+          animation-fill-mode: none;
+  -webkit-animation-play-state: running;
+          animation-play-state: running;
+}
+
+@-webkit-keyframes pulse-placeholder {
+  0% {
+    transform: scale(0.6);
+  }
+  100% {
+    transform: scale 0.8;
+  }
+}
+
+@keyframes pulse-placeholder {
+  0% {
+    transform: scale(0.6);
+  }
+  100% {
+    transform: scale 0.8;
+  }
 }/*# sourceMappingURL=style.css.map */
