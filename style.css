@@ -156,19 +156,19 @@ main {
   border: 1px solid red;
 }
 
-.result-container {
+.pick-container {
   width: 50%;
   border: 1px solid green;
   display: grid;
   place-content: center;
 }
-.result-container .result-title {
+.pick-container .pick-title {
   font-size: 2rem;
   color: #fff;
   text-align: center;
 }
 
-.result {
+.pick {
   aspect-ratio: 1/1;
   align-items: center;
   background-color: #fff;
@@ -178,7 +178,7 @@ main {
   justify-content: center;
   width: 200px;
 }
-.result__placeholder {
+.pick__placeholder {
   box-shadow: none;
   background-color: hsl(237deg, 49%, 15%);
   opacity: 0.4;

@@ -183,14 +183,14 @@ main {
 
 }
 
-.result-container {
+.pick-container {
    
     width: 50%;
     border: 1px solid green;
     display: grid;
     place-content: center;
 
-    .result-title {
+    .pick-title {
         font-size: 2rem;
         color: $clr-main;
         text-align: center;
@@ -209,7 +209,7 @@ main {
       
 }
 
-.result {
+.pick {
     aspect-ratio: 1/1;
     align-items: center;
     background-color: $clr-main;

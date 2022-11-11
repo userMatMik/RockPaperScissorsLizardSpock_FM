@@ -4,10 +4,41 @@ import { updateScore } from "./game-logic.js";
 const handleAiPick = () => {
     const resultElement = document.querySelector('#ai-result');
     setTimeout(() => {
-        resultElement.classList.remove('result__placeholder')
+        resultElement.classList.remove('pick__placeholder')
         displayAiPick();
+        createResult();
         updateScore();
     }, 3000)
+}
+
+const setResultText = () => {
+    if (RPSstate.winner === 'draw') {
+        return 'Draw'
+    } else if (RPSstate.winner === 'player') {
+        return 'You win'
+    } else {
+        return 'You lost'
+    }
+}
+
+const createResult = () => {
+    const resultsContainer = document.querySelector('.results');
+
+    const resultContainer = document.createElement('div');
+    // resultContainer.classList.add('')
+
+    const resultText = document.createElement('span');
+    resultText.innerText = setResultText();
+
+    const playAgainBtn = document.createElement('button');
+    playAgainBtn.innerText = "Play again";
+
+    resultContainer.appendChild(resultText);
+    resultContainer.appendChild(playAgainBtn);
+
+    resultsContainer.appendChild(resultContainer);
+
+    return resultsContainer;
 }
 
 const displayAiPick = () => {
@@ -18,7 +49,7 @@ const displayAiPick = () => {
 
 
     const resultImgContainerElement = document.createElement('div');
-    resultImgContainerElement.classList.add('rersult__img-container', 'result__img-placeholder');
+    resultImgContainerElement.classList.add('pick__img-container', 'pick__img-placeholder');
 
     const imgElement = document.createElement('img');
     imgElement.setAttribute('src', `./images/icon-${RPSstate.AIPick}.svg`);
@@ -29,18 +60,18 @@ const displayAiPick = () => {
 
 }
 
-const createResultAi = (str) => {
+const createAiPick = (str) => {
     const resultContainer = document.createElement('div');
-    resultContainer.classList.add('result-container');
+    resultContainer.classList.add('pick-container');
 
     const resultTitleElement = document.createElement('p');
     resultTitleElement.setAttribute('id', 'ai-title');
-    resultTitleElement.classList.add('result-title');
+    resultTitleElement.classList.add('pick-title');
     resultTitleElement.innerText = str;
 
     const resultElement = document.createElement('div');
     resultElement.setAttribute('id', 'ai-result');
-    resultElement.classList.add('result', 'result__placeholder');
+    resultElement.classList.add('pick', 'pick__placeholder');
 
     resultContainer.appendChild(resultTitleElement);
     resultContainer.appendChild(resultElement);
@@ -48,19 +79,19 @@ const createResultAi = (str) => {
     return resultContainer;
 }
 
-const createResult = (str) => {
+const createPlayerPick = (str) => {
     const resultContainer = document.createElement('div');
-    resultContainer.classList.add('result-container');
+    resultContainer.classList.add('pick-container');
 
     const resultTitleElement = document.createElement('p');
-    resultTitleElement.classList.add('result-title');
+    resultTitleElement.classList.add('pick-title');
     resultTitleElement.innerText = str;
 
     const resultElement = document.createElement('div');
-    resultElement.classList.add('result');
+    resultElement.classList.add('pick');
 
     const resultImgContainerElement = document.createElement('div');
-    resultImgContainerElement.classList.add('result__img-container');
+    resultImgContainerElement.classList.add('pick__img-container');
 
     const imgElement = document.createElement('img');
     imgElement.setAttribute('src', `./images/icon-${RPSstate.playerPick}.svg`);
@@ -82,8 +113,8 @@ export const renderBattle = () => {
     const battleElement = document.createElement('div');
     battleElement.classList.add('results');
 
-    battleElement.appendChild(createResult('You picked'));
-    battleElement.appendChild(createResultAi('House is picking...'));
+    battleElement.appendChild(createPlayerPick('You picked'));
+    battleElement.appendChild(createAiPick('House is picking...'));
 
     mainElement.appendChild(battleElement);
 
