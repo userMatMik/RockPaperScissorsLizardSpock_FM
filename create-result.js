@@ -25,12 +25,14 @@ const createResult = () => {
     const resultsContainer = document.querySelector('.results');
 
     const resultContainer = document.createElement('div');
-    // resultContainer.classList.add('')
+    resultContainer.classList.add('result')
 
     const resultText = document.createElement('span');
+    resultText.classList.add('result__text');
     resultText.innerText = setResultText();
 
     const playAgainBtn = document.createElement('button');
+    playAgainBtn.classList.add('result__button');
     playAgainBtn.innerText = "Play again";
 
     resultContainer.appendChild(resultText);
@@ -53,6 +55,7 @@ const displayAiPick = () => {
 
     const imgElement = document.createElement('img');
     imgElement.setAttribute('src', `./images/icon-${RPSstate.AIPick}.svg`);
+    imgElement.setAttribute('alt', RPSstate.AIPick);
 
     resultImgContainerElement.appendChild(imgElement)
 
@@ -95,8 +98,9 @@ const createPlayerPick = (str) => {
 
     const imgElement = document.createElement('img');
     imgElement.setAttribute('src', `./images/icon-${RPSstate.playerPick}.svg`);
+    imgElement.setAttribute('alt', RPSstate.playerPick);
 
-    resultImgContainerElement.appendChild(imgElement)
+    resultImgContainerElement.appendChild(imgElement);
     
     resultElement.appendChild(resultImgContainerElement);
 

@@ -189,9 +189,13 @@ main {
     border: 1px solid green;
     display: grid;
     place-content: center;
+    position: relative;
 
     .pick-title {
-        font-size: 2rem;
+        font-size: 1.2rem;
+        font-weight: 600;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
         color: $clr-main;
         text-align: center;
     }
@@ -217,7 +221,7 @@ main {
     box-shadow: inset 0px 8px 0px rgba(0, 0, 0, 0.15);
     display: flex;
     justify-content: center;
-    width: 200px;
+    width: 250px;
 
     &__placeholder {
         box-shadow: none;
@@ -244,3 +248,46 @@ main {
         transform: scale (0.8);
     }
 }
+
+.result {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    animation-name: show-result;
+    animation-duration: 0.3s;
+    animation-timing-function: ease-out;
+
+    &__text {
+        display: block;
+        font-size: 3rem;
+        color: $clr-main;
+        text-transform: uppercase;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+
+    &__button {
+        font-size: 1rem;
+        font-weight: 700;
+        letter-spacing: 1.5px;
+        color: $clr-points;
+        text-transform: uppercase;
+        background-color: $clr-main;
+        padding: 10px 30px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+
+    }
+}
+
+@keyframes show-result {
+    0% {
+        transform: translateY(-50%) scale(0);
+    }
+
+    100% {
+        transform: translateY(-50%) scale(1);
+    }
+}
+

@@ -1,7 +1,6 @@
 const createGameButton = (btnName) => {
     const buttonElement = document.createElement('button');
     buttonElement.classList.add('choice-button', `choice-button--${btnName}`)
-    buttonElement.setAttribute('alt', `${btnName}`)
     buttonElement.setAttribute('data-choice', `${btnName}`)
 
     const imgContainer = document.createElement('div');
@@ -9,6 +8,7 @@ const createGameButton = (btnName) => {
 
     const imgElement = document.createElement('img');
     imgElement.setAttribute('src', `./images/icon-${btnName}.svg`)
+    imgElement.setAttribute('alt', `${btnName}`);
     imgContainer.appendChild(imgElement);
     buttonElement.appendChild(imgContainer);
 
