@@ -112,14 +112,8 @@ main {
 
 .game-board {
     position: relative;
-    
     display: grid;
     place-content: center;
-
-    // .choice-button {
-
-    // } 
-
 }
 
 .choice-button {
@@ -179,18 +173,15 @@ main {
     left: 50%;
     transform: translate(-50%, -50%);
     width: 100%;
-    border: 1px solid red;
-
 }
 
 .pick-container {
-   
     width: 50%;
-    border: 1px solid green;
     display: grid;
     place-content: center;
     position: relative;
-
+    transition: 0.3s;
+    
     .pick-title {
         font-size: 1.2rem;
         font-weight: 600;
@@ -198,19 +189,16 @@ main {
         text-transform: uppercase;
         color: $clr-main;
         text-align: center;
-    }
+        margin-bottom: 3rem;
+    } 
+}
 
-    // &__img-container {
-    //     aspect-ratio: 1/1;
-    //     align-items: center;
-    //     background-color: $clr-main;
-    //     border-radius: 50%;
-    //     box-shadow: inset 0px 8px 0px rgba(0, 0, 0, 0.15);
-    //     display: flex;
-    //     justify-content: center;
-    //     width: 80%;
-    // }
-      
+.move-player-pick {
+    transform: translateX(-30%);
+}
+
+.move-ai-pick {
+    transform: translateX(30%);
 }
 
 .pick {
@@ -218,10 +206,22 @@ main {
     align-items: center;
     background-color: $clr-main;
     border-radius: 50%;
-    box-shadow: inset 0px 8px 0px rgba(0, 0, 0, 0.15);
+    box-shadow: inset 0px -12px 0px rgba(0, 0, 0, 0.15);
     display: flex;
     justify-content: center;
     width: 250px;
+
+    &--paper {
+        background-image: $grd-paper;
+    }
+
+    &--scissors {
+        background-image: $grd-scissors;
+    }
+
+    &--rock {
+        background-image: $grd-rock;
+    }
 
     &__placeholder {
         box-shadow: none;
@@ -237,6 +237,21 @@ main {
         animation-fill-mode: none;
         animation-play-state: running;
     }
+
+    &__img-container {
+        aspect-ratio: 1/1;
+        align-items: center;
+        background-color: $clr-main;
+        border-radius: 50%;
+        box-shadow: inset 0px 8px 0px rgba(0, 0, 0, 0.15);
+        display: flex;
+        justify-content: center;
+        width: 80%;
+    }
+
+    img {
+        width: 40%;
+    }
 }
 
 @keyframes pulse-placeholder {
@@ -249,6 +264,30 @@ main {
     }
 }
 
+.winner {
+    animation-name: winner;
+    animation-duration: 1s;
+    // animation-timing-function: cubic-bezier(0.1, -0.6, 0.2, 0);
+    // animation-timing-function: cubic-bezier(0.1, 0.7, 1.0, 0.1);
+    animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1);
+    animation-delay: 0s;
+    animation-iteration-count: infinite;
+    animation-play-state: running;
+    animation-direction: alternate;
+}
+
+@keyframes winner {
+    from {
+        box-shadow: inset 0px -12px 0px rgba(0, 0, 0, 0.15);
+    }
+    to {
+        box-shadow: inset 0px -12px 0px rgba(0, 0, 0, 0.15),
+        0px 0px 0px 150px rgba(255,255,255,0.02),
+        0px 0px 0px 100px rgba(255,255,255,0.02),
+        0px 0px 0px 50px rgba(255,255,255,0.02);
+    }
+}
+
 .result {
     position: absolute;
     top: 50%;
@@ -256,6 +295,11 @@ main {
     animation-name: show-result;
     animation-duration: 0.3s;
     animation-timing-function: ease-out;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
 
     &__text {
         display: block;
@@ -263,7 +307,6 @@ main {
         color: $clr-main;
         text-transform: uppercase;
         text-align: center;
-        margin-bottom: 10px;
     }
 
     &__button {

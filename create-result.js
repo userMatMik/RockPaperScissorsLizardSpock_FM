@@ -2,11 +2,15 @@ import { RPSstate } from "./game-logic.js";
 import { updateScore } from "./game-logic.js";
 
 const handleAiPick = () => {
-    const resultElement = document.querySelector('#ai-result');
+    const aiPickElement = document.querySelector('#ai-pick');
+    const playerPickContainerElement = document.querySelector('#player-pick-container');
+    const aiPickContainerElement = document.querySelector('#ai-pick-container');
     setTimeout(() => {
-        resultElement.classList.remove('pick__placeholder')
+        aiPickElement.classList.remove('pick__placeholder')
         displayAiPick();
         createResult();
+        playerPickContainerElement.classList.add('move-player-pick');
+        aiPickContainerElement.classList.add('move-ai-pick');
         updateScore();
     }, 3000)
 }
@@ -44,7 +48,8 @@ const createResult = () => {
 }
 
 const displayAiPick = () => {
-    const resultElement = document.querySelector('#ai-result');
+    const resultElement = document.querySelector('#ai-pick');
+    resultElement.classList.add('pick', `pick--${RPSstate.AIPick}`);
 
     const titleElement = document.querySelector('#ai-title')
     titleElement.innerText = "House picked";
@@ -66,6 +71,7 @@ const displayAiPick = () => {
 const createAiPick = (str) => {
     const resultContainer = document.createElement('div');
     resultContainer.classList.add('pick-container');
+    resultContainer.setAttribute('id', 'ai-pick-container');
 
     const resultTitleElement = document.createElement('p');
     resultTitleElement.setAttribute('id', 'ai-title');
@@ -73,7 +79,7 @@ const createAiPick = (str) => {
     resultTitleElement.innerText = str;
 
     const resultElement = document.createElement('div');
-    resultElement.setAttribute('id', 'ai-result');
+    resultElement.setAttribute('id', 'ai-pick');
     resultElement.classList.add('pick', 'pick__placeholder');
 
     resultContainer.appendChild(resultTitleElement);
@@ -85,13 +91,14 @@ const createAiPick = (str) => {
 const createPlayerPick = (str) => {
     const resultContainer = document.createElement('div');
     resultContainer.classList.add('pick-container');
+    resultContainer.setAttribute('id', 'player-pick-container');
 
     const resultTitleElement = document.createElement('p');
     resultTitleElement.classList.add('pick-title');
     resultTitleElement.innerText = str;
 
     const resultElement = document.createElement('div');
-    resultElement.classList.add('pick');
+    resultElement.classList.add('pick', `pick--${RPSstate.playerPick}`);
 
     const resultImgContainerElement = document.createElement('div');
     resultImgContainerElement.classList.add('pick__img-container');

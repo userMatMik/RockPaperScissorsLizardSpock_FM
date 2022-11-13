@@ -153,15 +153,14 @@ main {
   left: 50%;
   transform: translate(-50%, -50%);
   width: 100%;
-  border: 1px solid red;
 }
 
 .pick-container {
   width: 50%;
-  border: 1px solid green;
   display: grid;
   place-content: center;
   position: relative;
+  transition: 0.3s;
 }
 .pick-container .pick-title {
   font-size: 1.2rem;
@@ -170,6 +169,15 @@ main {
   text-transform: uppercase;
   color: #fff;
   text-align: center;
+  margin-bottom: 3rem;
+}
+
+.move-player-pick {
+  transform: translateX(-30%);
+}
+
+.move-ai-pick {
+  transform: translateX(30%);
 }
 
 .pick {
@@ -177,10 +185,19 @@ main {
   align-items: center;
   background-color: #fff;
   border-radius: 50%;
-  box-shadow: inset 0px 8px 0px rgba(0, 0, 0, 0.15);
+  box-shadow: inset 0px -12px 0px rgba(0, 0, 0, 0.15);
   display: flex;
   justify-content: center;
   width: 250px;
+}
+.pick--paper {
+  background-image: linear-gradient(to right top, hsl(230deg, 89%, 62%), hsl(230deg, 89%, 65%));
+}
+.pick--scissors {
+  background-image: linear-gradient(to right top, hsl(39deg, 89%, 49%), hsl(40deg, 84%, 53%));
+}
+.pick--rock {
+  background-image: linear-gradient(to right top, hsl(349deg, 71%, 52%), hsl(349deg, 70%, 56%));
 }
 .pick__placeholder {
   box-shadow: none;
@@ -204,6 +221,19 @@ main {
   -webkit-animation-play-state: running;
           animation-play-state: running;
 }
+.pick__img-container {
+  aspect-ratio: 1/1;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 50%;
+  box-shadow: inset 0px 8px 0px rgba(0, 0, 0, 0.15);
+  display: flex;
+  justify-content: center;
+  width: 80%;
+}
+.pick img {
+  width: 40%;
+}
 
 @-webkit-keyframes pulse-placeholder {
   0% {
@@ -222,6 +252,40 @@ main {
     transform: scale 0.8;
   }
 }
+.winner {
+  -webkit-animation-name: winner;
+          animation-name: winner;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+  -webkit-animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+          animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+  -webkit-animation-delay: 0s;
+          animation-delay: 0s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-play-state: running;
+          animation-play-state: running;
+  -webkit-animation-direction: alternate;
+          animation-direction: alternate;
+}
+
+@-webkit-keyframes winner {
+  from {
+    box-shadow: inset 0px -12px 0px rgba(0, 0, 0, 0.15);
+  }
+  to {
+    box-shadow: inset 0px -12px 0px rgba(0, 0, 0, 0.15), 0px 0px 0px 150px rgba(255, 255, 255, 0.02), 0px 0px 0px 100px rgba(255, 255, 255, 0.02), 0px 0px 0px 50px rgba(255, 255, 255, 0.02);
+  }
+}
+
+@keyframes winner {
+  from {
+    box-shadow: inset 0px -12px 0px rgba(0, 0, 0, 0.15);
+  }
+  to {
+    box-shadow: inset 0px -12px 0px rgba(0, 0, 0, 0.15), 0px 0px 0px 150px rgba(255, 255, 255, 0.02), 0px 0px 0px 100px rgba(255, 255, 255, 0.02), 0px 0px 0px 50px rgba(255, 255, 255, 0.02);
+  }
+}
 .result {
   position: absolute;
   top: 50%;
@@ -232,6 +296,11 @@ main {
           animation-duration: 0.3s;
   -webkit-animation-timing-function: ease-out;
           animation-timing-function: ease-out;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
 }
 .result__text {
   display: block;
@@ -239,7 +308,6 @@ main {
   color: #fff;
   text-transform: uppercase;
   text-align: center;
-  margin-bottom: 10px;
 }
 .result__button {
   font-size: 1rem;
