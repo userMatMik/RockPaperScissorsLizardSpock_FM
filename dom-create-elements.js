@@ -19,11 +19,7 @@ export const createGameBoard = () => {
     const mainElement = document.querySelector('#main');
 
     const gameBoard = document.createElement('div');
-    gameBoard.classList.add('game-board')
-    const boardBackground = document.createElement('img');
-    boardBackground.setAttribute('src', './images/bg-triangle.svg');
-
-    gameBoard.appendChild(boardBackground);
+    gameBoard.classList.add('game-board', 'game-board--rps')
     
     gameBoard.appendChild(createGameButton('paper'));
     gameBoard.appendChild(createGameButton('rock'));

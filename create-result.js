@@ -1,6 +1,7 @@
 import { RPSstate } from "./game-logic.js";
 import { updateScore } from "./game-logic.js";
 
+
 const handleAiPick = () => {
     const aiPickElement = document.querySelector('#ai-pick');
     const playerPickContainerElement = document.querySelector('#player-pick-container');
@@ -12,7 +13,19 @@ const handleAiPick = () => {
         playerPickContainerElement.classList.add('move-player-pick');
         aiPickContainerElement.classList.add('move-ai-pick');
         updateScore();
+        addWinnerClass();
     }, 3000)
+}
+
+const addWinnerClass = () => {
+    const pickElements = document.querySelectorAll('.pick');
+    if (RPSstate.winner === 'draw') {
+         return
+     } else if (RPSstate.winner === 'player') {
+        pickElements[0].classList.add('winner')
+    } else {
+        pickElements[1].classList.add('winner')
+    }
 }
 
 const setResultText = () => {
@@ -53,7 +66,6 @@ const displayAiPick = () => {
 
     const titleElement = document.querySelector('#ai-title')
     titleElement.innerText = "House picked";
-
 
     const resultImgContainerElement = document.createElement('div');
     resultImgContainerElement.classList.add('pick__img-container', 'pick__img-placeholder');
@@ -117,9 +129,21 @@ const createPlayerPick = (str) => {
     return resultContainer;
 }
 
+const hideGameBoard = () => {
+    const gameBoardElement = document.querySelector('.game-board');
+    gameBoardElement.classList.add('move-left');
+    setTimeout(() => {
+        gameBoardElement.classList.add('hidden')
+    }, 500)
+}
+
+const showBattle = () => {
+    const battleElement = document.querySelector('.results');
+    battleElement.classList.add('slide-left');
+}
+
 export const renderBattle = () => {
     const mainElement = document.querySelector('#main');
-    mainElement.innerHTML = "";
 
     const battleElement = document.createElement('div');
     battleElement.classList.add('results');
@@ -129,5 +153,9 @@ export const renderBattle = () => {
 
     mainElement.appendChild(battleElement);
 
+    setTimeout(() => {
+        hideGameBoard();
+        showBattle();
+    }, 100);
     handleAiPick();
 }

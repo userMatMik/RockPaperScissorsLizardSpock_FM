@@ -96,9 +96,26 @@ main {
 }
 
 .game-board {
-  position: relative;
-  display: grid;
-  place-content: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  aspect-ratio: 313/278;
+  background-size: cover;
+  width: 50%;
+  margin: 0 auto;
+  transition: transform 0.5s, opacity 0.5s;
+}
+.game-board--rps {
+  background-image: url("./images/bg-triangle.svg");
+}
+.game-board.move-left {
+  transform: translate(-300%, -50%);
+  opacity: 0;
+}
+
+.hidden {
+  display: none;
 }
 
 .choice-button {
@@ -110,8 +127,9 @@ main {
   box-shadow: inset 0px -9px 0px rgba(0, 0, 0, 0.2);
   display: flex;
   justify-content: center;
-  width: 200px;
+  width: 60%;
   cursor: pointer;
+  transition: all 0.2s ease-out;
 }
 .choice-button__image-container {
   align-items: center;
@@ -129,13 +147,13 @@ main {
 .choice-button--paper {
   top: 0;
   left: 0;
-  transform: translate(50%, -50%);
+  transform: translate(-50%, -50%);
   background-image: linear-gradient(to right top, hsl(230deg, 89%, 62%), hsl(230deg, 89%, 65%));
 }
 .choice-button--scissors {
   top: 0;
   right: 0;
-  transform: translate(-50%, -50%);
+  transform: translate(50%, -50%);
   background-image: linear-gradient(to right top, hsl(39deg, 89%, 49%), hsl(40deg, 84%, 53%));
 }
 .choice-button--rock {
@@ -144,6 +162,10 @@ main {
   transform: translate(-50%, 50%);
   background-image: linear-gradient(to right top, hsl(349deg, 71%, 52%), hsl(349deg, 70%, 56%));
 }
+.choice-button:hover {
+  scale: 1.05;
+  box-shadow: inset 0px -9px 0px rgba(0, 0, 0, 0.2), 0 0.25rem 2rem rgba(59, 67, 99, 0.986);
+}
 
 .results {
   display: flex;
@@ -151,14 +173,16 @@ main {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(200%, -50%);
   width: 100%;
+  transition: transform 0.5s, opacity 0.5s;
+}
+.results.slide-left {
+  transform: translate(-50%, -50%);
 }
 
 .pick-container {
   width: 50%;
-  display: grid;
-  place-content: center;
   position: relative;
   transition: 0.3s;
 }
@@ -188,7 +212,8 @@ main {
   box-shadow: inset 0px -12px 0px rgba(0, 0, 0, 0.15);
   display: flex;
   justify-content: center;
-  width: 250px;
+  width: 85%;
+  margin: 0 auto;
 }
 .pick--paper {
   background-image: linear-gradient(to right top, hsl(230deg, 89%, 62%), hsl(230deg, 89%, 65%));
@@ -226,7 +251,7 @@ main {
   align-items: center;
   background-color: #fff;
   border-radius: 50%;
-  box-shadow: inset 0px 8px 0px rgba(0, 0, 0, 0.15);
+  box-shadow: inset 0px 12px 0px rgba(0, 0, 0, 0.15);
   display: flex;
   justify-content: center;
   width: 80%;
