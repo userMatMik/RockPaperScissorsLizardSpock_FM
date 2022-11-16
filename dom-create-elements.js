@@ -15,15 +15,17 @@ const createGameButton = (btnName) => {
     return buttonElement;
 }
 
-export const createGameBoard = () => {
+
+export const createGameBoard = (choices, gameMode) => {
     const mainElement = document.querySelector('#main');
 
+    console.log(choices)
     const gameBoard = document.createElement('div');
-    gameBoard.classList.add('game-board', 'game-board--rps')
+    gameBoard.classList.add('game-board', `game-board--${gameMode}`)
     
-    gameBoard.appendChild(createGameButton('paper'));
-    gameBoard.appendChild(createGameButton('rock'));
-    gameBoard.appendChild(createGameButton('scissors'));
-
+    choices.forEach((choice) => {
+        gameBoard.appendChild(createGameButton(choice))
+    })
+   
     mainElement.appendChild(gameBoard);
 }

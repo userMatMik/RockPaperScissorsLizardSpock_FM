@@ -1,7 +1,7 @@
 import { createGameBoard } from "./dom-create-elements.js";
 import { renderBattle } from "./create-result.js";
 
-const possibleChoices = ['rock', 'paper', 'scissors', 'lizard', 'spock'];
+export const possibleChoices = ['rock', 'paper', 'scissors', 'lizard', 'spock'];
 
 const winningCombinations = {
     paper: ['rock', 'spock'],
@@ -11,6 +11,8 @@ const winningCombinations = {
     spock: ['scissors', 'rock'],
 }
 
+// let playerScoreLS = playerScoreLSKey;
+
 export let RPSstate = {
     playerScore: Number(localStorage.getItem('RPSPlayerScoreLS')) || 0,
     playerPick: null,
@@ -18,7 +20,7 @@ export let RPSstate = {
     winner: null,
 }
 
-const setWinner = () => {
+export const setWinner = () => {
     const playerPick = RPSstate.playerPick;
     const aiPick = RPSstate.AIPick;
 
@@ -44,7 +46,7 @@ const setWinner = () => {
     }
 }
 
-const setAIPick = () => {
+export const setAIPick = () => {
     const randomPick = Math.floor(Math.random() * 3);
     
     RPSstate = {
@@ -53,7 +55,7 @@ const setAIPick = () => {
     }
 }
 
-const setPlayerPick = (button) => {
+export const setPlayerPick = (button) => {
     RPSstate = {
         ...RPSstate,
         playerPick: button.dataset.choice,
@@ -64,21 +66,3 @@ export const updateScore = () => {
     const scoreElement = document.querySelector('.score__points');
     scoreElement.innerText = RPSstate.playerScore;
 }
-
-const eventListeners = () => {
-    document.querySelectorAll('.choice-button').forEach((button) => {
-        button.addEventListener('click', () => {
-            setPlayerPick(button);
-            setAIPick();
-            setWinner();
-            renderBattle();
-        })
-    })
-}
-
-const init = () => {
-    createGameBoard();
-    updateScore();
-    eventListeners();
-}
-init();

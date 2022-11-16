@@ -58,12 +58,17 @@ header {
 
 .logo {
   color: #fff;
+  cursor: pointer;
 }
 .logo__row {
   display: block;
   font-size: 2.5rem;
   line-height: 32px;
   text-transform: uppercase;
+}
+.logo__row--bonus {
+  font-size: 1.45rem;
+  line-height: 20px;
 }
 
 .score {
@@ -109,6 +114,9 @@ main {
 .game-board--rps {
   background-image: url("./images/bg-triangle.svg");
 }
+.game-board--rpsls {
+  background-image: url("./images/bg-pentagon.svg");
+}
 .game-board.move-left {
   transform: translate(-300%, -50%);
   opacity: 0;
@@ -129,7 +137,7 @@ main {
   justify-content: center;
   width: 60%;
   cursor: pointer;
-  transition: all 0.2s ease-out;
+  transition: all 0.3s ease-in-out;
 }
 .choice-button__image-container {
   align-items: center;
@@ -164,9 +172,44 @@ main {
 }
 .choice-button:hover {
   scale: 1.05;
-  box-shadow: inset 0px -9px 0px rgba(0, 0, 0, 0.2), 0 0.25rem 2rem rgba(59, 67, 99, 0.986);
+  box-shadow: inset 0px -9px 0px rgba(0, 0, 0, 0.2), 0 4px 30px rgba(59, 67, 99, 0.95);
+}
+.choice-button:hover img {
+  -webkit-animation-name: rotate-img;
+          animation-name: rotate-img;
+  -webkit-animation-duration: 0.7s;
+          animation-duration: 0.7s;
+  -webkit-animation-timing-function: ease-in-out;
+          animation-timing-function: ease-in-out;
+  -webkit-animation-delay: 0s;
+          animation-delay: 0s;
+  -webkit-animation-direction: alternate;
+          animation-direction: alternate;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-fill-mode: none;
+          animation-fill-mode: none;
+  -webkit-animation-play-state: running;
+          animation-play-state: running;
 }
 
+@-webkit-keyframes rotate-img {
+  from {
+    transform: rotate(20deg);
+  }
+  to {
+    transform: rotate(-20deg);
+  }
+}
+
+@keyframes rotate-img {
+  from {
+    transform: rotate(20deg);
+  }
+  to {
+    transform: rotate(-20deg);
+  }
+}
 .results {
   display: flex;
   justify-content: center;
@@ -175,10 +218,12 @@ main {
   left: 50%;
   transform: translate(200%, -50%);
   width: 100%;
+  opacity: 0;
   transition: transform 0.5s, opacity 0.5s;
 }
 .results.slide-left {
   transform: translate(-50%, -50%);
+  opacity: 1;
 }
 
 .pick-container {
@@ -345,6 +390,12 @@ main {
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+.result__button:hover {
+  scale: 1.1;
+  color: hsl(349deg, 71%, 52%);
+  box-shadow: 0 4px 30px rgba(59, 67, 99, 0.95);
 }
 
 @-webkit-keyframes show-result {

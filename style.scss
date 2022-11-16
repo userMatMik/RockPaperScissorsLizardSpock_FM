@@ -5,10 +5,13 @@ $clr-points: hsl(229, 25%, 31%);
 $clr-score: hsl(229, 64%, 46%);
 $clr-border: hsl(217, 16%, 45%);
 $clr-placeholder: hsl(237, 49%, 15%);
+$clr-play-again-hover: hsl(349, 71%, 52%);
 
 $grd-scissors: linear-gradient(to right top, hsl(39, 89%, 49%), hsl(40, 84%, 53%));
 $grd-paper: linear-gradient(to right top, hsl(230, 89%, 62%), hsl(230, 89%, 65%));
 $grd-rock: linear-gradient(to right top, hsl(349, 71%, 52%), hsl(349, 70%, 56%));
+$grd-lizard: linear-gradient(to right top, hsl(261, 73%, 60%) to hsl(261, 72%, 63%));
+$grd-spock: linear-gradient(to right top, hsl(189, 59%, 53%) to hsl(189, 58%, 57%));
 
 /* Box sizing rules */
 *,
@@ -69,12 +72,18 @@ header {
 
 .logo {
     color: $clr-main;
+    cursor: pointer;
 
     &__row {
         display: block;
         font-size: 2.5rem;
         line-height: 32px;
         text-transform: uppercase;
+
+        &--bonus {
+            font-size: 1.45rem;
+            line-height: 20px;
+        }
     }
 }
 
@@ -124,6 +133,10 @@ main {
         background-image: url("./images/bg-triangle.svg");
     }
 
+    &--rpsls {
+        background-image: url("./images/bg-pentagon.svg");
+    }
+
     &.move-left {
         transform: translate(-300%, -50%);
         opacity: 0;
@@ -145,7 +158,7 @@ main {
     justify-content: center;
     width: 60%;
     cursor: pointer;
-    transition: all 0.2s ease-out;
+    transition: all 0.3s ease-in-out;
 
     &__image-container {
         align-items: center;
@@ -167,7 +180,6 @@ main {
         left: 0;
         transform: translate(-50%, -50%);
         background-image: $grd-paper;
-
     }
 
     &--scissors {
@@ -187,7 +199,28 @@ main {
     &:hover {
         scale: 1.05;
         box-shadow: inset 0px -9px 0px rgba(0, 0, 0, 0.2), 
-        0 0.25rem 2rem rgba(59, 67, 99, 0.986);
+        0 4px 30px rgba(59, 67, 99, 0.95);
+    }
+
+    &:hover img {
+        animation-name: rotate-img;
+        animation-duration: 0.7s;
+        animation-timing-function: ease-in-out;
+        animation-delay: 0s;
+        animation-direction: alternate;
+        animation-iteration-count: infinite;
+        animation-fill-mode: none;
+        animation-play-state: running;
+    }
+}
+
+@keyframes rotate-img {
+    from {
+        transform: rotate(20deg)
+    }
+
+    to{
+        transform: rotate(-20deg)
     }
 }
 
@@ -199,12 +232,12 @@ main {
     left: 50%;
     transform: translate(200%, -50%);
     width: 100%;
-    // opacity: 0;
+    opacity: 0;
     transition: transform 0.5s, opacity 0.5s;
 
     &.slide-left {
         transform: translate(-50%, -50%);
-        // opacity: 1;
+        opacity: 1;
     }
 }
 
@@ -350,7 +383,12 @@ main {
         border: none;
         border-radius: 5px;
         cursor: pointer;
-
+        transition: all 0.3s ease-in-out;
+        &:hover {
+            scale: 1.1;
+            color: $clr-play-again-hover;
+            box-shadow: 0 4px 30px rgba(59, 67, 99, 0.95);
+        }
     }
 }
 

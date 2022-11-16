@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
   <link rel="stylesheet" href="style.css">
+  <script type="module" src="app.js"></script>
   <script type="module" src="dom-create-elements.js"></script>
   <script type="module" src="game-logic.js"></script>
   <script type="module" src="create-result.js"></script>
@@ -11,10 +12,17 @@
 </head>
 <body>
   <header class="header">
-    <h1 class="logo">
+    <h1 id="rps" class="logo">
       <span class="logo__row">Rock</span>
       <span class="logo__row">Paper</span>
       <span class="logo__row">Scissor</span>
+    </h1>
+    <h1 id="rpsls" class="logo hidden">
+      <span class="logo__row logo__row--bonus">Rock</span>
+      <span class="logo__row logo__row--bonus">Paper</span>
+      <span class="logo__row logo__row--bonus">Scissor</span>
+      <span class="logo__row logo__row--bonus">Lizard</span>
+      <span class="logo__row logo__row--bonus">Spock</span>
     </h1>
     <div class="score">
       <span class="score__title">SCORE</span>

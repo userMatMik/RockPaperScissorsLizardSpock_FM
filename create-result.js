@@ -57,6 +57,7 @@ const createResult = () => {
 
     resultsContainer.appendChild(resultContainer);
 
+    playAgain()
     return resultsContainer;
 }
 
@@ -127,6 +128,32 @@ const createPlayerPick = (str) => {
     resultContainer.appendChild(resultElement);
 
     return resultContainer;
+}
+
+export const playAgain = () => {
+    document.querySelector('.result__button').addEventListener('click', () => {
+        hideBattle();
+        showGameBoard();
+    })
+   
+}
+
+const showGameBoard = () => {
+    const gameBoardElement = document.querySelector('.game-board');
+    gameBoardElement.classList.remove('hidden');
+    setTimeout(() => {
+        gameBoardElement.classList.remove('move-left');
+    }, 100)
+    
+}
+
+const hideBattle = () => {
+    const battleElement = document.querySelector('.results');
+    battleElement.classList.remove('slide-left');
+    setTimeout(() => {
+        battleElement.remove();
+    } , 500)
+
 }
 
 const hideGameBoard = () => {
