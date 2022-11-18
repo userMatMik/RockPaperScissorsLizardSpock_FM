@@ -105,20 +105,25 @@ main {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  aspect-ratio: 313/278;
   background-size: cover;
   width: 50%;
   margin: 0 auto;
   transition: transform 0.5s, opacity 0.5s;
 }
 .game-board--rps {
+  aspect-ratio: 313/278;
   background-image: url("./images/bg-triangle.svg");
 }
 .game-board--rpsls {
+  aspect-ratio: 329/313;
   background-image: url("./images/bg-pentagon.svg");
 }
 .game-board.move-left {
   transform: translate(-300%, -50%);
+  opacity: 0;
+}
+.game-board.moved-right {
+  transform: translate(200%, -50%);
   opacity: 0;
 }
 
@@ -153,22 +158,64 @@ main {
   width: 50%;
 }
 .choice-button--paper {
+  background-image: linear-gradient(to right top, hsl(230deg, 89%, 62%), hsl(230deg, 89%, 65%));
+}
+.choice-button--paper--rps {
   top: 0;
   left: 0;
   transform: translate(-50%, -50%);
-  background-image: linear-gradient(to right top, hsl(230deg, 89%, 62%), hsl(230deg, 89%, 65%));
+}
+.choice-button--paper--rpsls {
+  width: 50%;
+  top: 0;
+  right: 0;
+  transform: translate(50%, 25%);
 }
 .choice-button--scissors {
+  background-image: linear-gradient(to right top, hsl(39deg, 89%, 49%), hsl(40deg, 84%, 53%));
+}
+.choice-button--scissors--rps {
   top: 0;
   right: 0;
   transform: translate(50%, -50%);
-  background-image: linear-gradient(to right top, hsl(39deg, 89%, 49%), hsl(40deg, 84%, 53%));
+}
+.choice-button--scissors--rpsls {
+  width: 50%;
+  top: 0;
+  right: 50%;
+  transform: translate(50%, -50%);
 }
 .choice-button--rock {
+  background-image: linear-gradient(to right top, hsl(349deg, 71%, 52%), hsl(349deg, 70%, 56%));
+}
+.choice-button--rock--rps {
   bottom: 0;
   left: 50%;
   transform: translate(-50%, 50%);
-  background-image: linear-gradient(to right top, hsl(349deg, 71%, 52%), hsl(349deg, 70%, 56%));
+}
+.choice-button--rock--rpsls {
+  width: 50%;
+  bottom: 0;
+  right: 0;
+  transform: translate(15%, 50%);
+}
+.choice-button--lizard {
+  background-image: linear-gradient(to right top, hsl(261deg, 73%, 60%), hsl(261deg, 72%, 63%));
+}
+.choice-button--lizard--rpsls {
+  width: 50%;
+  bottom: 0;
+  left: 0;
+  transform: translate(-15%, 50%);
+}
+.choice-button--spock {
+  background-image: linear-gradient(to right top, hsl(189deg, 59%, 53%), hsl(189deg, 58%, 57%));
+}
+.choice-button--spock--rpsls {
+  width: 50%;
+  top: 0;
+  left: 0;
+  transform: translate(-50%, 25%);
 }
 .choice-button:hover {
   scale: 1.05;
@@ -268,6 +315,12 @@ main {
 }
 .pick--rock {
   background-image: linear-gradient(to right top, hsl(349deg, 71%, 52%), hsl(349deg, 70%, 56%));
+}
+.pick--lizard {
+  background-image: linear-gradient(to right top, hsl(261deg, 73%, 60%), hsl(261deg, 72%, 63%));
+}
+.pick--spock {
+  background-image: linear-gradient(to right top, hsl(189deg, 59%, 53%), hsl(189deg, 58%, 57%));
 }
 .pick__placeholder {
   box-shadow: none;
@@ -414,4 +467,24 @@ main {
   100% {
     transform: translateY(-50%) scale(1);
   }
+}
+.rules {
+  position: absolute;
+  bottom: 2rem;
+  right: 15%;
+  font-size: 0.85rem;
+  letter-spacing: 1.3px;
+  color: #fff;
+  text-align: center;
+  padding: 0.4rem 1.55rem;
+  border: solid 2px hsl(217deg, 16%, 45%);
+  border-radius: 7px;
+  background-color: transparent;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+.rules:hover {
+  background-color: #fff;
+  color: hsl(229deg, 64%, 46%);
+  box-shadow: 0 4px 30px rgba(59, 67, 99, 0.95);
 }/*# sourceMappingURL=style.css.map */

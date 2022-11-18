@@ -10,8 +10,8 @@ $clr-play-again-hover: hsl(349, 71%, 52%);
 $grd-scissors: linear-gradient(to right top, hsl(39, 89%, 49%), hsl(40, 84%, 53%));
 $grd-paper: linear-gradient(to right top, hsl(230, 89%, 62%), hsl(230, 89%, 65%));
 $grd-rock: linear-gradient(to right top, hsl(349, 71%, 52%), hsl(349, 70%, 56%));
-$grd-lizard: linear-gradient(to right top, hsl(261, 73%, 60%) to hsl(261, 72%, 63%));
-$grd-spock: linear-gradient(to right top, hsl(189, 59%, 53%) to hsl(189, 58%, 57%));
+$grd-lizard: linear-gradient(to right top, hsl(261, 73%, 60%), hsl(261, 72%, 63%));
+$grd-spock: linear-gradient(to right top, hsl(189, 59%, 53%), hsl(189, 58%, 57%));
 
 /* Box sizing rules */
 *,
@@ -123,22 +123,28 @@ main {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    aspect-ratio: 313 / 278;
     background-size: cover;
     width: 50%;
     margin: 0 auto;
     transition: transform 0.5s, opacity 0.5s;
 
     &--rps {
+        aspect-ratio: 313 / 278;
         background-image: url("./images/bg-triangle.svg");
     }
 
     &--rpsls {
+        aspect-ratio: 329 / 313;
         background-image: url("./images/bg-pentagon.svg");
     }
 
     &.move-left {
         transform: translate(-300%, -50%);
+        opacity: 0;
+    }
+
+    &.moved-right {
+        transform: translate(200%, -50%);
         opacity: 0;
     }
 }
@@ -176,25 +182,75 @@ main {
     }
 
     &--paper {
-        top: 0;
-        left: 0;
-        transform: translate(-50%, -50%);
         background-image: $grd-paper;
+
+        &--rps {
+            top: 0;
+            left: 0;
+            transform: translate(-50%, -50%);
+        }
+
+        &--rpsls {
+            width: 50%;
+            top: 0;
+            right: 0;
+            transform: translate(50%, 25%);
+        }
     }
 
     &--scissors {
-        top: 0;
-        right: 0;
-        transform: translate(50%, -50%);
         background-image: $grd-scissors;
+
+        &--rps {
+            top: 0;
+            right: 0;
+            transform: translate(50%, -50%);
+        }
+
+        &--rpsls {
+            width: 50%;
+            top: 0;
+            right: 50%;
+            transform: translate(50%, -50%);
+        }
     }
 
     &--rock {
-        bottom: 0;
-        left: 50%;
-        transform: translate(-50%, 50%);
         background-image: $grd-rock;
 
+        &--rps {
+            bottom: 0;
+            left: 50%;
+            transform: translate(-50%, 50%);
+        }
+
+        &--rpsls {
+            width: 50%;
+            bottom: 0;
+            right: 0;
+            transform: translate(15%, 50%);
+        }
+    }
+    &--lizard {
+        background-image: $grd-lizard;
+
+        &--rpsls {
+            width: 50%;
+            bottom: 0;
+            left: 0;
+            transform: translate(-15%, 50%);
+        }
+    }
+
+    &--spock {
+        background-image: $grd-spock;
+
+        &--rpsls {
+            width: 50%;
+            top: 0;
+            left: 0;
+            transform: translate(-50%, 25%);
+        }
     }
     &:hover {
         scale: 1.05;
@@ -286,6 +342,14 @@ main {
 
     &--rock {
         background-image: $grd-rock;
+    }
+
+    &--lizard {
+        background-image: $grd-lizard;
+    }
+
+    &--spock {
+        background-image: $grd-spock;
     }
 
     &__placeholder {
@@ -400,5 +464,38 @@ main {
     100% {
         transform: translateY(-50%) scale(1);
     }
+}
+
+// footer {
+//     max-width: 1000px;
+//     margin: 0 auto;
+//     display: flex;
+//     justify-content: flex-end;
+
+//     button {
+        
+//     }
+// }
+
+.rules {
+    position: absolute;
+    bottom: 2rem;
+    right: 15%;
+    font-size: .85rem;
+    letter-spacing: 1.3px;
+    color: $clr-main;
+    text-align: center;
+    padding: .4rem 1.55rem;
+    border: solid 2px $clr-border;
+    border-radius: 7px;
+    background-color: transparent;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    &:hover {
+        background-color: $clr-main;
+        color: $clr-score;
+        box-shadow: 0 4px 30px rgba(59, 67, 99, 0.95);
+    }
+
 }
 

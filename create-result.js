@@ -1,6 +1,5 @@
-import { RPSstate } from "./game-logic.js";
-import { updateScore } from "./game-logic.js";
-
+import { state } from "./new-app.js";
+import { updateScore } from "./new-app.js";
 
 const handleAiPick = () => {
     const aiPickElement = document.querySelector('#ai-pick');
@@ -19,9 +18,9 @@ const handleAiPick = () => {
 
 const addWinnerClass = () => {
     const pickElements = document.querySelectorAll('.pick');
-    if (RPSstate.winner === 'draw') {
+    if (state.winner === 'draw') {
          return
-     } else if (RPSstate.winner === 'player') {
+     } else if (state.winner === 'player') {
         pickElements[0].classList.add('winner')
     } else {
         pickElements[1].classList.add('winner')
@@ -29,9 +28,9 @@ const addWinnerClass = () => {
 }
 
 const setResultText = () => {
-    if (RPSstate.winner === 'draw') {
+    if (state.winner === 'draw') {
         return 'Draw'
-    } else if (RPSstate.winner === 'player') {
+    } else if (state.winner === 'player') {
         return 'You win'
     } else {
         return 'You lost'
@@ -63,7 +62,7 @@ const createResult = () => {
 
 const displayAiPick = () => {
     const resultElement = document.querySelector('#ai-pick');
-    resultElement.classList.add('pick', `pick--${RPSstate.AIPick}`);
+    resultElement.classList.add('pick', `pick--${state.AiPick}`);
 
     const titleElement = document.querySelector('#ai-title')
     titleElement.innerText = "House picked";
@@ -72,13 +71,12 @@ const displayAiPick = () => {
     resultImgContainerElement.classList.add('pick__img-container', 'pick__img-placeholder');
 
     const imgElement = document.createElement('img');
-    imgElement.setAttribute('src', `./images/icon-${RPSstate.AIPick}.svg`);
-    imgElement.setAttribute('alt', RPSstate.AIPick);
+    imgElement.setAttribute('src', `./images/icon-${state.AiPick}.svg`);
+    imgElement.setAttribute('alt', state.AiPick);
 
     resultImgContainerElement.appendChild(imgElement)
 
     resultElement.appendChild(resultImgContainerElement);
-
 }
 
 const createAiPick = (str) => {
@@ -111,14 +109,14 @@ const createPlayerPick = (str) => {
     resultTitleElement.innerText = str;
 
     const resultElement = document.createElement('div');
-    resultElement.classList.add('pick', `pick--${RPSstate.playerPick}`);
+    resultElement.classList.add('pick', `pick--${state.playerPick}`);
 
     const resultImgContainerElement = document.createElement('div');
     resultImgContainerElement.classList.add('pick__img-container');
 
     const imgElement = document.createElement('img');
-    imgElement.setAttribute('src', `./images/icon-${RPSstate.playerPick}.svg`);
-    imgElement.setAttribute('alt', RPSstate.playerPick);
+    imgElement.setAttribute('src', `./images/icon-${state.playerPick}.svg`);
+    imgElement.setAttribute('alt', state.playerPick);
 
     resultImgContainerElement.appendChild(imgElement);
     
@@ -135,7 +133,6 @@ export const playAgain = () => {
         hideBattle();
         showGameBoard();
     })
-   
 }
 
 const showGameBoard = () => {
@@ -144,7 +141,6 @@ const showGameBoard = () => {
     setTimeout(() => {
         gameBoardElement.classList.remove('move-left');
     }, 100)
-    
 }
 
 const hideBattle = () => {
@@ -153,7 +149,6 @@ const hideBattle = () => {
     setTimeout(() => {
         battleElement.remove();
     } , 500)
-
 }
 
 const hideGameBoard = () => {
