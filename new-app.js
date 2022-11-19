@@ -1,9 +1,11 @@
 import { createGameBoard } from "./dom-create-elements.js";
 import { renderBattle } from "./create-result.js";
 
-let settings = null;
+export let settings = null;
 export let state = null;
 let playerScoreLSKey = null;
+
+let gameModeLs = localStorage.getItem('gameModeLs') || 'rps';
 
 const winningCombinations = {
     paper: ['rock', 'spock'],
@@ -89,6 +91,7 @@ const bindEvents = () => {
             const gameType = document.querySelector('.logo.hidden').getAttribute('id');
             logoElements.forEach(element => element.classList.toggle('hidden'));
             startGame(gamesSettings[gameType]);
+            localStorage.setItem('gameModeLs', gameType)
             e.stopImmediatePropagation();
         })
     })
@@ -109,4 +112,16 @@ const startGame = (gameMode) => {
     updateScore();
 }
 
-startGame(gamesSettings.rps);
+const init = () => {
+    if (gameModeLs === 'rps') {
+        startGame(gamesSettings.rps);
+    } else {
+        startGame(gamesSettings.rpsls);
+        document.querySelector('#rps').classList.add('hidden');
+        document.querySelector('#rpsls').classList.remove('hidden');
+    }
+}
+
+init();
+
+

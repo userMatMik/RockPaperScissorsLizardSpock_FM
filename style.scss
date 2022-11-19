@@ -72,7 +72,13 @@ header {
 
 .logo {
     color: $clr-main;
+    // color: $clr-border;
+    opacity: 0.75;
     cursor: pointer;
+    transition: opacity 0.4s ease-in-out;
+    &:hover {
+        opacity: 1;   
+    }
 
     &__row {
         display: block;
@@ -466,18 +472,7 @@ main {
     }
 }
 
-// footer {
-//     max-width: 1000px;
-//     margin: 0 auto;
-//     display: flex;
-//     justify-content: flex-end;
-
-//     button {
-        
-//     }
-// }
-
-.rules {
+.rules-btn {
     position: absolute;
     bottom: 2rem;
     right: 15%;
@@ -496,6 +491,40 @@ main {
         color: $clr-score;
         box-shadow: 0 4px 30px rgba(59, 67, 99, 0.95);
     }
+}
 
+.game-rules {
+    position: relative;
+    outline: none;
+    border: none;
+    border-radius: 7px;
+    padding: 1.7rem 2.2rem;
+    overflow: hidden;
+
+    &::backdrop {
+        backdrop-filter: blur(4px);
+    }
+
+    &__title {
+        color: $clr-points;
+        text-transform: uppercase;
+        margin-bottom: 3rem;
+        text-align: center;
+    }
+
+    img {
+        aspect-ratio: 1 / 1;
+    }
+
+    &__close-btn {
+        position: absolute;
+        top: 7%;
+        right: 5%;
+        display: grid;
+        place-items: center;
+        border: none;
+        background-color: transparent;
+        cursor: pointer;
+    }
 }
 

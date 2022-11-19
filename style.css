@@ -58,7 +58,12 @@ header {
 
 .logo {
   color: #fff;
+  opacity: 0.75;
   cursor: pointer;
+  transition: opacity 0.4s ease-in-out;
+}
+.logo:hover {
+  opacity: 1;
 }
 .logo__row {
   display: block;
@@ -468,7 +473,7 @@ main {
     transform: translateY(-50%) scale(1);
   }
 }
-.rules {
+.rules-btn {
   position: absolute;
   bottom: 2rem;
   right: 15%;
@@ -483,8 +488,44 @@ main {
   cursor: pointer;
   transition: all 0.2s ease-in-out;
 }
-.rules:hover {
+.rules-btn:hover {
   background-color: #fff;
   color: hsl(229deg, 64%, 46%);
   box-shadow: 0 4px 30px rgba(59, 67, 99, 0.95);
+}
+
+.game-rules {
+  position: relative;
+  outline: none;
+  border: none;
+  border-radius: 7px;
+  padding: 1.7rem 2.2rem;
+  overflow: hidden;
+}
+.game-rules::-webkit-backdrop {
+  -webkit-backdrop-filter: blur(4px);
+          backdrop-filter: blur(4px);
+}
+.game-rules::backdrop {
+  -webkit-backdrop-filter: blur(4px);
+          backdrop-filter: blur(4px);
+}
+.game-rules__title {
+  color: hsl(229deg, 25%, 31%);
+  text-transform: uppercase;
+  margin-bottom: 3rem;
+  text-align: center;
+}
+.game-rules img {
+  aspect-ratio: 1/1;
+}
+.game-rules__close-btn {
+  position: absolute;
+  top: 7%;
+  right: 5%;
+  display: grid;
+  place-items: center;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
 }/*# sourceMappingURL=style.css.map */

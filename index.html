@@ -10,6 +10,7 @@
   <!-- <script type="module" src="game-logic.js"></script> -->
   <script type="module" src="new-game-logic.js"></script>
   <script type="module" src="create-result.js"></script>
+  <script type="module" src="modal.js"></script>
   <title>Rock, Paper, Scissors</title>
 </head>
 <body>
@@ -19,13 +20,13 @@
       <span class="logo__row">Paper</span>
       <span class="logo__row">Scissor</span>
     </h1>
-    <h1 id="rpsls" class="logo hidden">
+    <h2 id="rpsls" class="logo hidden">
       <span class="logo__row logo__row--bonus">Rock</span>
       <span class="logo__row logo__row--bonus">Paper</span>
       <span class="logo__row logo__row--bonus">Scissor</span>
       <span class="logo__row logo__row--bonus">Lizard</span>
       <span class="logo__row logo__row--bonus">Spock</span>
-    </h1>
+    </h2>
     <div class="score">
       <span class="score__title">SCORE</span>
       <span class="score__points"></span>
@@ -34,7 +35,15 @@
   <main id="main">
 
   </main>
-  <button class="rules" id="rules">RULES</button>
-
+  <button class="rules-btn" id="rulesBtn">RULES</button>
+  <dialog class="game-rules" id="gameRules">
+    <h2 class="game-rules__title">rules</h2>
+    <div class="game-rules__img-container">
+      <img id="rulesImg" src="./images/image-rules.svg" alt="rock, paper, scissors rules">
+    </div>
+    <button class="game-rules__close-btn" id="closeRules">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"><path fill="#3B4262" fill-rule="evenodd" d="M16.97 0l2.122 2.121-7.425 7.425 7.425 7.425-2.121 2.12-7.425-7.424-7.425 7.425L0 16.97l7.425-7.425L0 2.121 2.121 0l7.425 7.425L16.971 0z" opacity=".25"/></svg>
+    </button>
+  </dialog>
 </body>
 </html>
