@@ -1,7 +1,7 @@
 const createGameButton = (btnName, gameMode) => {
     const buttonElement = document.createElement('button');
-    buttonElement.classList.add('choice-button', `choice-button--${btnName}`,  `choice-button--${btnName}--${gameMode}`)
-    buttonElement.setAttribute('data-choice', `${btnName}`)
+    buttonElement.classList.add('choice-button', `choice-button--${btnName}`,  `choice-button--${btnName}--${gameMode}`);
+    buttonElement.setAttribute('data-choice', `${btnName}`);
 
     const imgContainer = document.createElement('div');
     imgContainer.classList.add('choice-button__image-container')
@@ -24,7 +24,7 @@ export const createGameBoard = ( { gameMode, possibleChoices }) => {
     gameBoard.classList.add('game-board', `game-board--${gameMode}`, 'moved-right')
     
     possibleChoices.forEach((choice) => {
-        gameBoard.appendChild(createGameButton(choice, gameMode))
+        gameBoard.appendChild(createGameButton(choice, gameMode));
     })
    
     mainElement.appendChild(gameBoard);

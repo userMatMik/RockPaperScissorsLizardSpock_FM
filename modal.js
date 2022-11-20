@@ -10,7 +10,7 @@ openDialogBtn.addEventListener('click', () => {
         rulesImg.setAttribute('src', './images/image-rules.svg');
         rulesImg.setAttribute('alt', 'rock, paper, scissors rules');
     } else {
-        rulesImg.setAttribute('src', './images/image-rules-bonus.svg')
+        rulesImg.setAttribute('src', './images/image-rules-bonus.svg');
         rulesImg.setAttribute('alt', 'rock, paper, scissors, lizard, spock rules');
     }
 

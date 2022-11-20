@@ -91,7 +91,7 @@ const bindEvents = () => {
             const gameType = document.querySelector('.logo.hidden').getAttribute('id');
             logoElements.forEach(element => element.classList.toggle('hidden'));
             startGame(gamesSettings[gameType]);
-            localStorage.setItem('gameModeLs', gameType)
+            localStorage.setItem('gameModeLs', gameType);
             e.stopImmediatePropagation();
         })
     })

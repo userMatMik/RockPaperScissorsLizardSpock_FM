@@ -43,6 +43,11 @@ body {
   min-width: 100vw;
   overflow: hidden;
 }
+@media screen and (max-width: 700px) {
+  body {
+    padding: 0 1rem;
+  }
+}
 
 header {
   align-items: center;
@@ -71,6 +76,12 @@ header {
   line-height: 32px;
   text-transform: uppercase;
 }
+@media screen and (max-width: 480px) {
+  .logo__row {
+    font-size: 1.45rem;
+    line-height: 20px;
+  }
+}
 .logo__row--bonus {
   font-size: 1.45rem;
   line-height: 20px;
@@ -82,6 +93,11 @@ header {
   padding: 15px 45px;
   border-radius: 8px;
 }
+@media screen and (max-width: 480px) {
+  .score {
+    padding: 15px 25px;
+  }
+}
 .score span {
   display: block;
 }
@@ -90,11 +106,22 @@ header {
   letter-spacing: 2px;
   color: hsl(229deg, 64%, 46%);
 }
+@media screen and (max-width: 480px) {
+  .score__title {
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+  }
+}
 .score__points {
   font-size: 3.7rem;
   font-weight: 700;
   line-height: 1;
   color: hsl(229deg, 25%, 31%);
+}
+@media screen and (max-width: 480px) {
+  .score__points {
+    font-size: 2.45rem;
+  }
 }
 
 main {
@@ -103,6 +130,12 @@ main {
   margin: 0 auto;
   min-height: 70vh;
   padding: 180px 0;
+}
+@media screen and (max-width: 480px) {
+  main {
+    min-height: 60vh;
+    padding: 60px 0;
+  }
 }
 
 .game-board {
@@ -292,13 +325,28 @@ main {
   text-align: center;
   margin-bottom: 3rem;
 }
+@media screen and (max-width: 480px) {
+  .pick-container .pick-title {
+    margin-bottom: 2rem;
+  }
+}
 
 .move-player-pick {
   transform: translateX(-30%);
 }
+@media screen and (max-width: 480px) {
+  .move-player-pick {
+    transform: translateX(0);
+  }
+}
 
 .move-ai-pick {
   transform: translateX(30%);
+}
+@media screen and (max-width: 480px) {
+  .move-ai-pick {
+    transform: translateX(0);
+  }
 }
 
 .pick {
@@ -430,6 +478,12 @@ main {
   align-items: center;
   justify-content: center;
 }
+@media screen and (max-width: 480px) {
+  .result {
+    position: absolute;
+    top: 140%;
+  }
+}
 .result__text {
   display: block;
   font-size: 3rem;
@@ -492,6 +546,12 @@ main {
   background-color: #fff;
   color: hsl(229deg, 64%, 46%);
   box-shadow: 0 4px 30px rgba(59, 67, 99, 0.95);
+}
+@media screen and (max-width: 480px) {
+  .rules-btn {
+    right: 50%;
+    transform: translateX(50%);
+  }
 }
 
 .game-rules {

@@ -56,6 +56,9 @@ body {
     min-height: 100vh;
     min-width: 100vw;
     overflow: hidden;
+    @media screen and (max-width: 700px) {
+        padding: 0 1rem;     
+    }
 }
 
 header {
@@ -72,7 +75,6 @@ header {
 
 .logo {
     color: $clr-main;
-    // color: $clr-border;
     opacity: 0.75;
     cursor: pointer;
     transition: opacity 0.4s ease-in-out;
@@ -86,6 +88,11 @@ header {
         line-height: 32px;
         text-transform: uppercase;
 
+        @media screen and (max-width: 480px) {
+            font-size: 1.45rem;
+            line-height: 20px;    
+        }
+
         &--bonus {
             font-size: 1.45rem;
             line-height: 20px;
@@ -98,6 +105,9 @@ header {
     text-align: center;
     padding: 15px 45px;
     border-radius: 8px;
+    @media screen and (max-width: 480px) {
+        padding: 15px 25px;
+    }
 
     span {
         display: block;
@@ -106,6 +116,10 @@ header {
         font-size: 1.1rem;
         letter-spacing: 2px;
         color: $clr-score;
+        @media screen and (max-width: 480px) {
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+        }
     }
 
     &__points {
@@ -113,6 +127,10 @@ header {
         font-weight: 700;
         line-height: 1;
         color: $clr-points;
+
+        @media screen and (max-width: 480px) {
+            font-size: 2.45rem;    
+        }
     }
 }
 
@@ -122,6 +140,11 @@ main {
     margin: 0 auto;
     min-height: 70vh;
     padding: 180px 0;
+
+    @media screen and (max-width: 480px) {
+        min-height: 60vh;
+        padding : 60px 0;  
+    }    
 }
 
 .game-board {
@@ -316,15 +339,25 @@ main {
         color: $clr-main;
         text-align: center;
         margin-bottom: 3rem;
+
+        @media screen and (max-width: 480px) {
+            margin-bottom: 2rem;
+        }
     } 
 }
 
 .move-player-pick {
     transform: translateX(-30%);
+    @media screen and (max-width: 480px) {
+        transform: translateX(0);     
+    }
 }
 
 .move-ai-pick {
     transform: translateX(30%);
+    @media screen and (max-width: 480px) {
+        transform: translateX(0);     
+    }
 }
 
 .pick {
@@ -434,6 +467,11 @@ main {
     align-items: center;
     justify-content: center;
 
+    @media screen and (max-width: 480px) {
+        position: absolute;
+        top: 140%; 
+    }
+
     &__text {
         display: block;
         font-size: 3rem;
@@ -490,6 +528,11 @@ main {
         background-color: $clr-main;
         color: $clr-score;
         box-shadow: 0 4px 30px rgba(59, 67, 99, 0.95);
+    }
+
+    @media screen and (max-width: 480px) {
+        right: 50%;
+        transform: translateX(50%);
     }
 }
 

@@ -6,7 +6,7 @@ const handleAiPick = () => {
     const playerPickContainerElement = document.querySelector('#player-pick-container');
     const aiPickContainerElement = document.querySelector('#ai-pick-container');
     setTimeout(() => {
-        aiPickElement.classList.remove('pick__placeholder')
+        aiPickElement.classList.remove('pick__placeholder');
         displayAiPick();
         createResult();
         playerPickContainerElement.classList.add('move-player-pick');
@@ -21,9 +21,9 @@ const addWinnerClass = () => {
     if (state.winner === 'draw') {
          return
      } else if (state.winner === 'player') {
-        pickElements[0].classList.add('winner')
+        pickElements[0].classList.add('winner');
     } else {
-        pickElements[1].classList.add('winner')
+        pickElements[1].classList.add('winner');
     }
 }
 
@@ -31,9 +31,9 @@ const setResultText = () => {
     if (state.winner === 'draw') {
         return 'Draw'
     } else if (state.winner === 'player') {
-        return 'You win'
+        return 'You win';
     } else {
-        return 'You lost'
+        return 'You lost';
     }
 }
 
@@ -41,7 +41,7 @@ const createResult = () => {
     const resultsContainer = document.querySelector('.results');
 
     const resultContainer = document.createElement('div');
-    resultContainer.classList.add('result')
+    resultContainer.classList.add('result');
 
     const resultText = document.createElement('span');
     resultText.classList.add('result__text');
@@ -56,7 +56,7 @@ const createResult = () => {
 
     resultsContainer.appendChild(resultContainer);
 
-    playAgain()
+    playAgain();
     return resultsContainer;
 }
 
@@ -64,7 +64,7 @@ const displayAiPick = () => {
     const resultElement = document.querySelector('#ai-pick');
     resultElement.classList.add('pick', `pick--${state.AiPick}`);
 
-    const titleElement = document.querySelector('#ai-title')
+    const titleElement = document.querySelector('#ai-title');
     titleElement.innerText = "House picked";
 
     const resultImgContainerElement = document.createElement('div');
@@ -74,7 +74,7 @@ const displayAiPick = () => {
     imgElement.setAttribute('src', `./images/icon-${state.AiPick}.svg`);
     imgElement.setAttribute('alt', state.AiPick);
 
-    resultImgContainerElement.appendChild(imgElement)
+    resultImgContainerElement.appendChild(imgElement);
 
     resultElement.appendChild(resultImgContainerElement);
 }
@@ -140,7 +140,7 @@ const showGameBoard = () => {
     gameBoardElement.classList.remove('hidden');
     setTimeout(() => {
         gameBoardElement.classList.remove('move-left');
-    }, 100)
+    }, 100);
 }
 
 const hideBattle = () => {
@@ -148,15 +148,15 @@ const hideBattle = () => {
     battleElement.classList.remove('slide-left');
     setTimeout(() => {
         battleElement.remove();
-    } , 500)
+    } , 500);
 }
 
 const hideGameBoard = () => {
     const gameBoardElement = document.querySelector('.game-board');
     gameBoardElement.classList.add('move-left');
     setTimeout(() => {
-        gameBoardElement.classList.add('hidden')
-    }, 500)
+        gameBoardElement.classList.add('hidden');
+    }, 500);
 }
 
 const showBattle = () => {
